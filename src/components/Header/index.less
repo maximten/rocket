@@ -1,0 +1,30 @@
+@import '../../variables.less';
+header {
+  height: 60px;
+  line-height: 60px;
+  background-color: @base-color;
+  .logo {
+    font-size: 18px;
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    span {
+      transition: all 0.3s linear;
+      margin-right: 5px;
+    }
+    svg {
+      position: relative;
+      transition: all 0.3s linear;
+    }
+    &:hover, &:focus {
+      text-decoration: underline;
+      span {
+        margin-right: 10px;
+      }
+      svg {
+        font-size: 30px;
+        bottom: -3px;
+      }
+    }
+  }
+}

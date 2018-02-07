@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './index.less';
 
-export default class Post extends Component {
+export default class Container extends Component {
   render() {
     return (
-      <div className="post">
+      <div className="container">
+        { this.props.children }
       </div>
     );
   }
