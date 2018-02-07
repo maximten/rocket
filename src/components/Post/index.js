@@ -4,7 +4,7 @@ import './index.less';
 
 export default class Post extends Component {
   render() {
-    const { post: { title, content }, comments } = this.props;
+    const { post: { title, content }, comments, fetch } = this.props;
     return (
       <div className="post">
         <h1>{ title }</h1>
@@ -13,6 +13,7 @@ export default class Post extends Component {
           comments &&
           <Comments
           items={comments}
+          fetch={fetch}
           />
         }
       </div>

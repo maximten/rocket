@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import './index.less';
 
 export default class Comments extends Component {
   render() {
-    const { items } = this.props;
+    const { items, fetch } = this.props;
     const colors = ['#06d6a0', '#ef476f', '#ffc43d', '#1b9aaa'];
     return (
       <div className="comments">
         {
-          items.map((item, key) => {
+          _.map(items, (item, key) => {
             const { name, content } = item;
             const color = colors[key % colors.length];
             return (
@@ -26,6 +27,10 @@ export default class Comments extends Component {
             );
           })
         }
+        <a href="#" onClick={(e) => {
+          e.preventDefault();
+          fetch();
+        }}>More</a>
       </div>
     );
   }

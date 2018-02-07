@@ -8,7 +8,7 @@ function* getItems(action) {
   const { postId, offset, limit } = action;
   try {
     const items = yield call(api.fetch, postId, offset, limit);
-    yield put({ type: Types.GET_COMMENTS.SUCCESS, items: { [postId]: items } });
+    yield put({ type: Types.GET_COMMENTS.SUCCESS, items, postId });
   } catch (error) {
     yield put({ type: Types.GET_COMMENTS.FAILURE, error });
   }

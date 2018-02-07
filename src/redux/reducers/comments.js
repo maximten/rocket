@@ -1,4 +1,5 @@
 import Types from '../constants/types';
+import _ from 'lodash';
 
 const initialState = {
   items: {},
@@ -14,9 +15,12 @@ const comments = (state = initialState, action) => {
         loading: true,
       };
     case Types.GET_COMMENTS.SUCCESS:
+      const { postId } = action;
+      const items = state.items;
+      items[postId] = items[postId] ? [...items[postId], ...action.items] : action.items;
       return {
         ...state,
-        items: { ...state.items, ...action.items },
+        items,
         loading: false,
       };
     case Types.GET_COMMENTS.FAILURE:
