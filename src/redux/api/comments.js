@@ -22,3 +22,5 @@ export const fetch = (postId, offset, limit) => {
     },
   ];
 };
+
+export const add = (postId, name, content) => {}

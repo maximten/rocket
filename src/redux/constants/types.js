@@ -9,6 +9,11 @@ const Types = {
     SUCCESS: 'GET_COMMENTS_SUCCESS',
     FAILURE: 'GET_COMMENTS_FAILURE',
   },
+  ADD_COMMENT: {
+    REQUEST: 'ADD_COMMENT',
+    SUCCESS: 'ADD_COMMENT_SUCCESS',
+    FAILURE: 'ADD_COMMENT_FAILURE',
+  },
 };
 
 export default Types;

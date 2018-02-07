@@ -14,8 +14,19 @@ function* getItems(action) {
   }
 }
 
+function* addComment(action) {
+  const { postId, name, content } = action;
+  try {
+    yield call(api.add, postId, name, content);
+    yield put({ type: Types.ADD_COMMENT.SUCCESS });
+  } catch (error) {
+    yield put({ type: Types.ADD_COMMENT.FAILURE });
+  }
+}
+
 function* watchDetails() {
   yield takeLatest(Types.GET_COMMENTS.REQUEST, getItems);
+  yield takeLatest(Types.ADD_COMMENT.REQUEST, addComment);
 }
 
 export default function* detailsSaga() {

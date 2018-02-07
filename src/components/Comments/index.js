@@ -18,7 +18,7 @@ export default class Comments extends Component {
     }
   }
   render() {
-    const { items, fetch } = this.props;
+    const { items, fetch, fetching } = this.props;
     const colors = ['#06d6a0', '#ef476f', '#ffc43d', '#1b9aaa'];
     return (
       <div className="comments">

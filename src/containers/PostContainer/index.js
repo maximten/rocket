@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetch } from '../../redux/actions/comments'
+import { fetch, add } from '../../redux/actions/comments'
 import Post from '../../components/Post';
 
 class PostContainer extends Component {
@@ -21,13 +21,16 @@ class PostContainer extends Component {
     this.fetch();
   }
   render() {
-    const { post, comments: { items } } = this.props;
+    const { post, comments: { items, fetching }, add } = this.props;
     const comments = items[post.id];
+    const commentsFetching = fetching[post.id];
     return (
       <Post
-      post={post}
-      comments={comments}
-      fetch={this.fetch}
+        post={post}
+        comments={comments}
+        commentsFetching={commentsFetching}
+        fetch={this.fetch}
+        addComment={add}
       />
     );
   }
@@ -40,6 +43,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetch: (postId, offset, limit) => {
     dispatch(fetch(postId, offset, limit));
+  },
+  add: (postId, name, content) => {
+    dispatch(add(postId, name, content));
   },
 });
 

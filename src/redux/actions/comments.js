@@ -6,3 +6,10 @@ export const fetch = (postId, offset, limit) => ({
   offset,
   limit,
 });
+
+export const add = (postId, name, content) => ({
+  type: Types.ADD_COMMENT.REQUEST,
+  postId,
+  name,
+  content,
+});

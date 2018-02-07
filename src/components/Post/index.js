@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Comments from '../Comments';
+import CommentForm from '../CommentForm';
 import './index.less';
 
 export default class Post extends Component {
   render() {
-    const { post: { title, content }, comments, fetch } = this.props;
+    const { post: { title, content }, comments, commentsFetching, fetch, addComment } = this.props;
     return (
       <div className="post">
         <h1>{ title }</h1>
@@ -12,10 +13,14 @@ export default class Post extends Component {
         {
           comments &&
           <Comments
-          items={comments}
-          fetch={fetch}
+            items={comments}
+            fetching={commentsFetching}
+            fetch={fetch}
           />
         }
+        <CommentForm
+          add={addComment}
+        />
       </div>
     );
   }

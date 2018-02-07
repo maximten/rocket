@@ -1,0 +1,42 @@
+@import '../../variables.less';
+.comment-form {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 0;
+  .left {
+    padding: 10px 20px 10px 0;
+    .circle {
+      font-size: 18px;
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: @focus-color;
+      border: none;
+    }
+  }
+  .right {
+    width: 100%;
+    .form-group {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      input {
+        font-size: 18px;
+        width: 100%;
+        color: @font-color-light;
+        border: 1px solid transparent;
+        border-bottom: 1px solid @font-color-light;
+      }
+      textarea {
+        font-size: 18px;
+        width: 100%;
+        color: @font-color-light;
+        border: 1px solid transparent;
+        border-bottom: 1px solid @font-color-light;
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ const comments = (state = initialState, action) => {
       };
     case Types.GET_COMMENTS.SUCCESS:
       var { postId } = action;
-      const items = state.items;
+      var items = state.items;
       items[postId] = items[postId] ? [...items[postId], ...action.items] : action.items;
       var fetching = state.fetching;
       fetching[postId] = false;
@@ -35,6 +35,22 @@ const comments = (state = initialState, action) => {
         ...state,
         error: action.error,
         fetching,
+      };
+    case Types.ADD_COMMENT.REQUEST:
+      return {
+        ...state,
+      };
+    case Types.ADD_COMMENT.SUCCESS:
+      var { postId, name, content } = action;
+      var items = state.items;
+      items[postId] = items[postId] ? [...items[postId], { name, content }] : [{ name, content }];
+      return {
+        ...state,
+        items
+      };
+    case Types.ADD_COMMENT.FAILURE:
+      return {
+        ...state,
       };
     default:
       return {
