@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import scrollToElement from 'scroll-to-element';
 import './index.less';
 
 export default class Comments extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillReceiveProps(newProps) {
+    const { items } = this.props;
+    if (newProps.items.length !== this.props.items.length) {
+      scrollToElement(this.refs.more, {
+        offset: -300,
+        ease: 'out-quad',
+        duration: 1000
+      });
+    }
+  }
   render() {
     const { items, fetch } = this.props;
     const colors = ['#06d6a0', '#ef476f', '#ffc43d', '#1b9aaa'];
@@ -27,7 +41,7 @@ export default class Comments extends Component {
             );
           })
         }
-        <a href="#" onClick={(e) => {
+        <a href="#" ref="more" onClick={(e) => {
           e.preventDefault();
           fetch();
         }}>More</a>
