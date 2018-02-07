@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import fetch from '../redux/actions/posts'
+import { fetch } from '../../redux/actions/posts'
+import Posts from '../../components/Posts';
 
 class PostsContainer extends Component {
+  componentDidMount() {
+    const { posts: { offset, limit }, fetch } = this.props;
+    fetch(offset, limit);
+  }
   render() {
+    const { posts: { items, fetching }} = this.props;
     return (
-      
+      <Posts
+      items={items}
+      fetching={fetching}
+      />
     );
   }
 }
