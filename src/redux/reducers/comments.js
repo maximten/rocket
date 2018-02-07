@@ -3,31 +3,38 @@ import _ from 'lodash';
 
 const initialState = {
   items: {},
-  fetching: false,
+  fetching: {},
   error: null,
 };
 
 const comments = (state = initialState, action) => {
   switch (action.type) {
     case Types.GET_COMMENTS.REQUEST:
+      var { postId } = action;
+      var fetching = state.fetching;
+      fetching[postId] = true;
       return {
         ...state,
-        loading: true,
+        fetching,
       };
     case Types.GET_COMMENTS.SUCCESS:
-      const { postId } = action;
+      var { postId } = action;
       const items = state.items;
       items[postId] = items[postId] ? [...items[postId], ...action.items] : action.items;
+      var fetching = state.fetching;
+      fetching[postId] = false;
       return {
         ...state,
         items,
-        loading: false,
+        fetching,
       };
     case Types.GET_COMMENTS.FAILURE:
+      var fetching = state.fetching;
+      fetching[postId] = false;
       return {
         ...state,
         error: action.error,
-        loading: false,
+        fetching,
       };
     default:
       return {

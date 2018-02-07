@@ -11,7 +11,7 @@ export default class Comments extends Component {
     const { items } = this.props;
     if (newProps.items.length !== this.props.items.length) {
       scrollToElement(this.refs.more, {
-        offset: -300,
+        offset: 0,
         ease: 'out-quad',
         duration: 1000
       });
@@ -22,6 +22,13 @@ export default class Comments extends Component {
     const colors = ['#06d6a0', '#ef476f', '#ffc43d', '#1b9aaa'];
     return (
       <div className="comments">
+        <a href="#" ref="more" className="more" onClick={(e) => {
+          e.preventDefault();
+          fetch();
+        }}>
+          <i className="fas fa-comments"></i>
+          <span>More</span>  
+        </a>
         {
           _.map(items, (item, key) => {
             const { name, content } = item;
@@ -41,10 +48,6 @@ export default class Comments extends Component {
             );
           })
         }
-        <a href="#" ref="more" onClick={(e) => {
-          e.preventDefault();
-          fetch();
-        }}>More</a>
       </div>
     );
   }

@@ -7,9 +7,9 @@ export default class Footer extends Component {
     return (
       <footer>
         <Container>
-            <a href="#">Правила</a>
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Контакты</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">About</a>
         </Container>
       </footer>
     );

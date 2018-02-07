@@ -24,4 +24,24 @@
       }
     }
   }
+  .more {
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    padding: 10px 0 10px 0;
+    color: @font-color-light;
+    text-decoration: none;
+    border-bottom: 1px solid @font-color-light;
+    transition: all 0.5s ease-out;
+    svg {
+      margin-right: 10px;
+      transition: all 0.5s ease-out;
+    }
+    &:hover, &:focus {
+      text-decoration: underline;
+      svg {
+        margin-right: 15px;
+      }
+    }
+  }
 }
