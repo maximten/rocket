@@ -5,7 +5,7 @@ import './index.less';
 
 export default class Post extends Component {
   render() {
-    const { post: { title, content }, comments, commentsFetching, fetch, addComment } = this.props;
+    const { post: { id, title, content }, comments, commentsFetching, fetch, addComment } = this.props;
     return (
       <div className="post">
         <h1>{ title }</h1>
@@ -20,6 +20,7 @@ export default class Post extends Component {
         }
         <CommentForm
           add={addComment}
+          postId={id}
         />
       </div>
     );

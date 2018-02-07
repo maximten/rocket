@@ -7,16 +7,6 @@ export default class Comments extends Component {
   constructor(props) {
     super(props);
   }
-  componentWillReceiveProps(newProps) {
-    const { items } = this.props;
-    if (newProps.items.length !== this.props.items.length) {
-      scrollToElement(this.refs.more, {
-        offset: 0,
-        ease: 'out-quad',
-        duration: 1000
-      });
-    }
-  }
   render() {
     const { items, fetch, fetching } = this.props;
     const colors = ['#06d6a0', '#ef476f', '#ffc43d', '#1b9aaa'];

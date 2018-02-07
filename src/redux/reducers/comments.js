@@ -20,7 +20,7 @@ const comments = (state = initialState, action) => {
     case Types.GET_COMMENTS.SUCCESS:
       var { postId } = action;
       var items = state.items;
-      items[postId] = items[postId] ? [...items[postId], ...action.items] : action.items;
+      items[postId] = items[postId] ? [...action.items, ...items[postId]] : action.items;
       var fetching = state.fetching;
       fetching[postId] = false;
       return {

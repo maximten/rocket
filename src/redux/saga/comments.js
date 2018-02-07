@@ -18,7 +18,7 @@ function* addComment(action) {
   const { postId, name, content } = action;
   try {
     yield call(api.add, postId, name, content);
-    yield put({ type: Types.ADD_COMMENT.SUCCESS });
+    yield put({ type: Types.ADD_COMMENT.SUCCESS, postId, name, content });
   } catch (error) {
     yield put({ type: Types.ADD_COMMENT.FAILURE });
   }
