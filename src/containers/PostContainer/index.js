@@ -17,11 +17,16 @@ class PostContainer extends Component {
     fetch(id, offset, limit);
     this.setState({ offset: offset + limit });
   }
+  componentDidMount() {
+    this.fetch();
+  }
   render() {
-    const { post } = this.props;
+    const { post, comments: { items } } = this.props;
+    const comments = items[post.id];
     return (
       <Post
       post={post}
+      comments={comments}
       fetch={this.fetch}
       />
     );

@@ -1,0 +1,27 @@
+@import '../../variables.less';
+.comments {
+  border-top: 1px solid @font-color;
+  .comment {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid lighten(@font-color, 40%);
+    .left {
+      padding: 10px 10px 10px 0;
+      .circle {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: #000;
+      }
+    }
+    .right {
+      h4 {
+        margin: 0 0 10px 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
