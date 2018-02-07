@@ -1,0 +1,14 @@
+const Types = {
+  GET_POSTS: {
+    REQUEST: 'GET_POSTS',
+    SUCCESS: 'GET_POSTS_SUCCESS',
+    FAILURE: 'GET_POSTS_FAILURE',
+  },
+  GET_COMMENTS: {
+    REQUEST: 'GET_COMMENTS',
+    SUCCESS: 'GET_COMMENTS_SUCCESS',
+    FAILURE: 'GET_COMMENTS_FAILURE',
+  },
+};
+
+export default Types;

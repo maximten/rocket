@@ -18,11 +18,12 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
     "style-loader": "^0.20.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "start" : "./node_modules/.bin/webpack-dev-server --hot"
+    "start": "./node_modules/.bin/webpack-dev-server --hot"
   }
 }

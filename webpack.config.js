@@ -4,8 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: [
     'babel-polyfill',
-    __dirname + '/src/js/index.js',
-    __dirname + '/src/less/index.less',
+    __dirname + '/src/index.js',
   ],
   output: {
     path: __dirname + '/dist/',
